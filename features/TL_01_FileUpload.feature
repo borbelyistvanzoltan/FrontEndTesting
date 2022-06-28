@@ -4,8 +4,8 @@ Scenario: login as Seller, import Transaction file, validate the upload, login a
 Given user is on Login page
 Given I login as: "istvan.borbely@prozenda.com" with password: "Prozenda2022"
 Given Wait for loading main page
-#Then Navigate to Import file page
-#Then Upload transaction file from
+Then Navigate to Import file page
+Then Upload transaction file from
 #Then Commit "ER1234107"
 #Then Navigate to Bookings page
 #Then Change dropdown and select Seller - All Due

@@ -17,6 +17,12 @@ public class AbstractPage {
         return DriverManager.getInstance().getDriver();
     }
 
+    public static void wait(int timeout) throws InterruptedException {
+        synchronized (getDriver()) {
+            getDriver().wait(timeout);
+        }
+    }
+
     public static void waitUntil(ExpectedCondition<WebElement> condition, Duration timeout) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), timeout);

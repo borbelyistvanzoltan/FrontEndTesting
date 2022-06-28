@@ -2,6 +2,7 @@ package com.prozenda.stepdefinition;
 
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class FileUploadSteps {
 
@@ -20,5 +21,15 @@ public class FileUploadSteps {
     @Given("Wait for loading main page")
     public void waitForMainPage() throws InterruptedException {
         pages.getTransactionsPagePOM().waitForLoadingMainPage();
+    }
+
+    @Then("Navigate to Import file page")
+    public void navigateToImportFilePage() throws InterruptedException {
+        pages.getTransactionsPagePOM().navigateToFileUploadsPage();
+    }
+
+    @Then("Upload transaction file from")
+    public void uploadTransactionFile() throws InterruptedException {
+        pages.getTransactionsPagePOM().uploadTransactionFile();
     }
 }

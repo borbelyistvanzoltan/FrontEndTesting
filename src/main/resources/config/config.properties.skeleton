@@ -1,0 +1,2 @@
+#Windows os
+geckodriver.path=src/main/resources/webDrivers/geckodriver.exe

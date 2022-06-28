@@ -66,9 +66,9 @@ public class TransactionsPagePOM extends AbstractPage {
     }
 
     public void navigateToFileUploadsPage() throws InterruptedException {
+        AbstractPage.wait(1500);
         getDriver().findElement(fileUploadsBtnInMenu).click();
-        Thread.sleep(1000);
-        //webDriverWait.until(ExpectedConditions.presenceOfElementLocated(getCheckBoxBtnPath()));
+        AbstractPage.waitUntil(ExpectedConditions.visibilityOfElementLocated(uploadFileBtnInSubMenu), timeout);
     }
 
     public void checkParameterElementIsExist(String transactionNumber) throws InterruptedException {
