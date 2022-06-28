@@ -52,21 +52,17 @@ public class TransactionsPagePOM extends AbstractPage {
     private static By currentAm = By.xpath("//table[2]/tbody/tr[1]/td[12]/div/div");
     private static By emailInput = By.id("email");
     private static By passwordInput = By.id("password");
+    private static final Duration timeout = Duration.ofSeconds(5);
 
-    WebDriverWait webDriverWait = new WebDriverWait(getDriver(), Duration.ofSeconds(6));
+    WebDriverWait webDriverWait = new WebDriverWait(getDriver(), timeout);
 
     Actions action = new Actions(getDriver());
 
     public void login(String email, String pass) throws InterruptedException {
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(emailInput), Duration.ofSeconds(5) );
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(emailInput), timeout);
         getDriver().findElement(emailInput).sendKeys(email);
         getDriver().findElement(passwordInput).sendKeys(pass);
         getDriver().findElement(loginBtn).click();
-        waitForLoadingMainPage();
-    }
-
-    public By getFileUploadsBtnInMenu() {
-        return fileUploadsBtnInMenu;
     }
 
     public void navigateToFileUploadsPage() throws InterruptedException {
@@ -355,9 +351,7 @@ public class TransactionsPagePOM extends AbstractPage {
     }
 
     public void waitForLoadingMainPage() throws InterruptedException {
-        // 15 sec sleep for 2FA
-        Thread.sleep(15000);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(getFileUploadsBtnInMenu()));
+        AbstractPage.waitUntil(ExpectedConditions.visibilityOfElementLocated(fileUploadsBtnInMenu), timeout);
     }
 
 

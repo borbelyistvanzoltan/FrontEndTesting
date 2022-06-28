@@ -3,7 +3,7 @@ Feature: Travel Ledger automation tests
 Scenario: login as Seller, import Transaction file, validate the upload, login as Buyer, validate Transaction file
 Given user is on Login page
 Given I login as: "istvan.borbely@prozenda.com" with password: "Prozenda2022"
-#Given Wait for loading main page
+Given Wait for loading main page
 #Then Navigate to Import file page
 #Then Upload transaction file from
 #Then Commit "ER1234107"

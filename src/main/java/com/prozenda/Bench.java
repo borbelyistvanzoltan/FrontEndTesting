@@ -35,9 +35,4 @@ public class Bench {
 //
 //        return loginPagePOM;
 //    }
-
-    public WebDriver getWebDriver() {
-
-        return webDriver;
-    }
 }
