@@ -1,4 +1,4 @@
-package com.prozenda.stepdefinition;
+package prozenda.stepdefinition;
 
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;

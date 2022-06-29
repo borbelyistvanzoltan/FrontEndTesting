@@ -1,4 +1,4 @@
-package com.prozenda.stepdefinition;
+package prozenda.stepdefinition;
 
 import com.prozenda.Bench;
 import io.cucumber.java.*;

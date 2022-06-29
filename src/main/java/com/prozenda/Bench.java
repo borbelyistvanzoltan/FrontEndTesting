@@ -1,8 +1,8 @@
 package com.prozenda;
 
 import com.prozenda.drivermanager.DriverManager;
-import org.openqa.selenium.WebDriver;
 import com.prozenda.pages.LoginPagePOM;
+import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
