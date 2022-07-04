@@ -8,7 +8,6 @@ public class FirefoxDriverProvider implements DriverProvider{
 
     public WebDriver getDriver() {
         String path = GetProperties.getProperty("geckodriver.path");
-//        String path = "src/main/resources/webdrivers/geckodriver.exe";
         System.setProperty("webdriver.gecko.driver", path);
 
         return new FirefoxDriver();

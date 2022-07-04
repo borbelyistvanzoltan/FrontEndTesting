@@ -32,4 +32,9 @@ public class FileUploadSteps {
     public void uploadTransactionFile() throws InterruptedException {
         pages.getTransactionsPagePOM().uploadTransactionFile();
     }
+
+    @Then("Commit {string}")
+    public void commitTransaction(String transactionNumber) throws InterruptedException {
+        pages.getTransactionsPagePOM().commitTransaction(transactionNumber);
+    }
 }

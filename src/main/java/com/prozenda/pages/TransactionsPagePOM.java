@@ -1,5 +1,6 @@
 package com.prozenda.pages;
 
+import com.prozenda.utils.GetProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -52,6 +53,7 @@ public class TransactionsPagePOM extends AbstractPage {
     private static By currentAm = By.xpath("//table[2]/tbody/tr[1]/td[12]/div/div");
     private static By emailInput = By.id("email");
     private static By passwordInput = By.id("password");
+    private static By partnerNameInput = By.xpath("/html/body/div[4]/div[3]/div/div/div/div[1]/div[1]/div/div/div/input");
     private static final Duration timeout = Duration.ofSeconds(5);
 
     WebDriverWait webDriverWait = new WebDriverWait(getDriver(), timeout);
@@ -99,7 +101,7 @@ public class TransactionsPagePOM extends AbstractPage {
 
     //Method to upload file
     public void uploadTransactionFile() throws InterruptedException {
-        String location = "/Users/borbelyistvan/Documents/Prozenda/Travelledger/Prozenda.txt";
+        String location = GetProperties.getProperty("transactionfile.path");
         System.out.println("Click upload file in sub menu.");
         getDriver().findElement(uploadFileBtnInSubMenu).click();
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(dropFileBtn));
@@ -127,12 +129,14 @@ public class TransactionsPagePOM extends AbstractPage {
         Thread.sleep(2000);
         getDriver().findElement(updatePartnerBtn).click();
         System.out.println("Update button clicked.");
-        Thread.sleep(15000);
-
-        //TODO: manually step: type Prozenda2 into text box.
+        WebElement partnerNameInputField = getDriver().findElement(partnerNameInput);
+        partnerNameInputField.sendKeys("Prozenda2");
+        Thread.sleep(1000);
+        partnerNameInputField.sendKeys(Keys.ARROW_DOWN);
+        partnerNameInputField.sendKeys(Keys.ENTER);
 
         //findElement(By.xpath("//*[contains(@id,'mui')]")).click();
-        System.out.println("Partnername is Prozenda2 set by manually.");
+        System.out.println("Partnername is Prozenda2");
         Thread.sleep(1000);
         getDriver().findElement(commercialLinkField).click();
         Thread.sleep(1000);
@@ -161,9 +165,6 @@ public class TransactionsPagePOM extends AbstractPage {
         getDriver().findElement(commitBtn).click();
         System.out.println("Commit button clicked.");
         Thread.sleep(2000);
-
-
-
     }
 
 
