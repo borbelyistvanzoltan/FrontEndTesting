@@ -37,4 +37,34 @@ public class FileUploadSteps {
     public void commitTransaction(String transactionNumber) throws InterruptedException {
         pages.getTransactionsPagePOM().commitTransaction(transactionNumber);
     }
+
+    @Then("Navigate to Bookings page")
+    public void navigatesToBookingsPage() throws InterruptedException {
+        pages.getTransactionsPagePOM().navigatesToBookings();
+    }
+
+    @Then("Check {string} transaction committed")
+    public void checkTransactionCommitted(String transactionNumber) throws InterruptedException {
+        pages.getTransactionsPagePOM().checkParameterElementIsExist(transactionNumber);
+    }
+
+    @Then("Check {string} transaction committed from Buyer side")
+    public void checkTransactionCommittedFromBuyerSide(String transactionNumber) throws InterruptedException {
+        pages.getTransactionsPagePOM().checkParameterElementIsExistFromBuyerSide(transactionNumber);
+    }
+
+    @Then("Change dropdown and select Seller - All Due")
+    public void selectDropDownAndCheckTableFromSellerSide() {
+        pages.getTransactionsPagePOM().changeQuickViewToSellerAllDue();
+    }
+
+    @Then("Change dropdown and select Buyer - All Due")
+    public void selectDropDownAndCheckTableFromBuyerSide() {
+        pages.getTransactionsPagePOM().changeQuickViewToBuyerAllDue();
+    }
+
+    @Then("Logout")
+    public void logout() {
+        pages.getTransactionsPagePOM().logout();
+    }
 }
