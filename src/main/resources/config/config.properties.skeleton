@@ -1,3 +1,7 @@
 #Windows os
 geckodriver.path=src/main/resources/webDrivers/geckodriver.exe
 transactionfile.path=C:\\Users\\....\\projects\\TravelLedgerCucumber\\src\\test\\resources\\Prozenda.txt
+
+#Linus os
+geckodriver.path=src/main/resources/webDrivers/geckodriver
+transactionfile.path=src/test/resources/Prozenda.txt

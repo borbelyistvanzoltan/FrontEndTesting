@@ -11,8 +11,11 @@ public class GetProperties {
 
     public static String getProperty(String key) {
         Properties prop = new Properties();
+        String environment = System.getenv("prop");
+        String whichprop = environment == "win" ? environment + "." : "";
+        System.out.println(environment + "   " + whichprop);
         try {
-            InputStream input = new FileInputStream("src/main/resources/config/config.properties");
+            InputStream input = new FileInputStream("src/main/resources/config/" + whichprop + "config.properties");
             prop.load(input);
         } catch (IOException e) {
             e.printStackTrace();
