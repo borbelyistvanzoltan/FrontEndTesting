@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: "java -version"
+          command: "sudo apt install firefox"
       - run:
           name: "Run tests"
           command: "mvn test"

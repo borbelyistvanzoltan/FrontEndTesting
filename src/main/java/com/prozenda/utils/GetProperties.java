@@ -3,6 +3,8 @@ package com.prozenda.utils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class GetProperties {
@@ -13,9 +15,8 @@ public class GetProperties {
         Properties prop = new Properties();
         String environment = System.getenv("prop");
         String whichprop = environment == "win" ? environment + "." : "";
-        System.out.println(environment + "   " + whichprop);
         try {
-            InputStream input = new FileInputStream("src/main/resources/config/" + whichprop + "config.properties");
+            InputStream input = Files.newInputStream(Paths.get("src/main/resources/config/" + whichprop + "config.properties"));
             prop.load(input);
         } catch (IOException e) {
             e.printStackTrace();
