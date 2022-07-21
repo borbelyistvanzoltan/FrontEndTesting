@@ -11,8 +11,21 @@ jobs:
       - image: circleci/openjdk:8-buster-node-browsers-legacy
     steps:
       - checkout
+#      - run:
+#          name: "Remove Firefox"
+#          command: "sudo apt-get purge firefox-mozilla-build"
+#      - run:
+#            name: "Upgrade"
+#            command: "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B && sudo apt update && echo -ne 'U+000A' | sudo apt install software-properties-common && sudo add-apt-repository ppa:mozillateam/firefox-next && sudo apt upgrade"
+#      - run:
+#          name: "Install Firefox"
+#          command: "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B && sudo apt-get update && sudo apt-get install firefox && firefox -v"
       - run:
-          command: "sudo apt install firefox"
+          name: "Fix Firefox"
+          command: "export NSS_USE_SHARED_DB=ENABLED && export NSS_USE_SHARED_DB=ENABLED"
+      - run:
+          name: "Check geckodriver executable"
+          command: "cd src/main/resources/webdrivers && chmod +x geckodriver && pwd && ls -l"
       - run:
           name: "Run tests"
           command: "mvn test"
